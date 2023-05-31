@@ -54,6 +54,6 @@ public class TelaTimeThread extends JDialog{
 		setVisible(true); /* Tona a tela visivel para o usuario*/
 	}
 	
-	/**/
+	
 	
 }
