@@ -53,7 +53,7 @@ private Runnable thread2 = new Runnable() {
 		
 		@Override
 		public void run() {
-			while (true) { /* fica sempre rodando */
+			while (true) { 
 				mostraTempo2.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").
 						format(Calendar.getInstance().getTime()));  /* funcao que puxa a hora no objeto */
 				
@@ -92,7 +92,7 @@ private Runnable thread2 = new Runnable() {
 	
 	mostraTempo.setPreferredSize(new Dimension(200, 25)); /* cria um componente com sua localizacao */
 	gridBagConstraints.gridy ++;  /* adiciona 1 casa do painel de layout andando 1 casa no Y */
-	mostraTempo.setEditable(false); /* desativa a casa escrever */
+	mostraTempo.setEditable(false); /* desativa a casa de escrever */
 	jPanel.add(mostraTempo, gridBagConstraints); /* adicionou o componente */
 	
 	descricaoHora2.setPreferredSize(new Dimension(200, 25));
@@ -147,7 +147,7 @@ private Runnable thread2 = new Runnable() {
 	
 	add(jPanel, BorderLayout.WEST); /* adiconou o layoub no painel (West <esquerda) */
 	/* sempre ultima linha */	
-		setVisible(true); /* Tona a tela visivel para o usuario*/
+		setVisible(true); /* Torna a tela visivel para o usuario*/
 	}
 	
 	
