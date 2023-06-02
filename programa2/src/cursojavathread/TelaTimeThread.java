@@ -18,12 +18,12 @@ import javax.swing.JTextField;
 
 public class TelaTimeThread extends JDialog{
 	
-	private JPanel jPanel = new JPanel(new GridBagLayout()); /* Painel de componentes*/
+	private JPanel jPanel = new JPanel(new GridBagLayout()); 
 	
-	private JLabel descricaoHora = new JLabel("Time thread 1"); /* Descricao do Label */
+	private JLabel descricaoHora = new JLabel("Time thread 1"); 
 	private JTextField mostraTempo = new JTextField();
 	
-	private JLabel descricaoHora2 = new JLabel("Time thread 2"); /* Descricao do Label */
+	private JLabel descricaoHora2 = new JLabel("Time thread 2"); 
 	private JTextField mostraTempo2 = new JTextField();
 	
 	private JButton jButton = new JButton("Start");
@@ -33,16 +33,16 @@ public class TelaTimeThread extends JDialog{
 		
 		@Override
 		public void run() {
-			while (true) { /* fica sempre rodando */
+			while (true) { 
 				mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").
-						format(Calendar.getInstance().getTime()));  /* funcao que puxa a hora no objeto */
+						format(Calendar.getInstance().getTime()));  
 				
 				
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-				}  /* pausa de 1s */
+				} 
 			}
 			
 		}
@@ -55,14 +55,14 @@ private Runnable thread2 = new Runnable() {
 		public void run() {
 			while (true) { 
 				mostraTempo2.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss").
-						format(Calendar.getInstance().getTime()));  /* funcao que puxa a hora no objeto */
+						format(Calendar.getInstance().getTime()));  
 				
 				
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
-				}  /* pausa de 1s */
+				}  
 			}
 			
 		}
@@ -71,29 +71,29 @@ private Runnable thread2 = new Runnable() {
 	private Thread  thread1Time;
 	private Thread thread2Time;
 	
-	public TelaTimeThread() { /* Executa o que tiver dentro no momento da abertura ou execucao*/
-	setTitle("Minha tela com a Thread"); /* titulo da tela */
-	setSize(new Dimension(240, 240));  /* dimensao */
-	setLocationRelativeTo(null);	/* localizacao da tela (centro */
-	setResizable(false); /* nao da dimninuir nem aumentar a tela */
-	/* primeira parte concluida */
+	public TelaTimeThread() { 
+	setTitle("Minha tela com a Thread"); 
+	setSize(new Dimension(240, 240));  
+	setLocationRelativeTo(null);	
+	setResizable(false); 
+
 	
 
-	/* controlador de posicionamento */
-	GridBagConstraints gridBagConstraints = new GridBagConstraints();  /* Controlador de posicionamento de componentes */
-	gridBagConstraints.gridx = 0; /* pro lado horizontal */
-	gridBagConstraints.gridy = 0; /* pra cima vertical */
-	gridBagConstraints.gridwidth = 2; /* iniciar a largura com 2 */
-	gridBagConstraints.insets = new Insets(5, 10, 5, 5); /* espaçamento */
-	gridBagConstraints.anchor = GridBagConstraints.WEST; /* Posicionamento */
 	
-	descricaoHora.setPreferredSize(new Dimension(200, 25)); /* adicionar o painel dentro do gridx e gridy */
+	GridBagConstraints gridBagConstraints = new GridBagConstraints(); 
+	gridBagConstraints.gridx = 0; 
+	gridBagConstraints.gridy = 0; 
+	gridBagConstraints.gridwidth = 2; 
+	gridBagConstraints.insets = new Insets(5, 10, 5, 5);
+	gridBagConstraints.anchor = GridBagConstraints.WEST; 
+	
+	descricaoHora.setPreferredSize(new Dimension(200, 25)); 
 	jPanel.add(descricaoHora, gridBagConstraints);
 	
-	mostraTempo.setPreferredSize(new Dimension(200, 25)); /* cria um componente com sua localizacao */
-	gridBagConstraints.gridy ++;  /* adiciona 1 casa do painel de layout andando 1 casa no Y */
-	mostraTempo.setEditable(false); /* desativa a casa de escrever */
-	jPanel.add(mostraTempo, gridBagConstraints); /* adicionou o componente */
+	mostraTempo.setPreferredSize(new Dimension(200, 25)); 
+	gridBagConstraints.gridy ++;  
+	mostraTempo.setEditable(false); 
+	jPanel.add(mostraTempo, gridBagConstraints);
 	
 	descricaoHora2.setPreferredSize(new Dimension(200, 25));
 	gridBagConstraints.gridy ++;
@@ -101,10 +101,10 @@ private Runnable thread2 = new Runnable() {
 	
 	mostraTempo2.setPreferredSize(new Dimension(200,25));
 	gridBagConstraints.gridy ++;
-	mostraTempo2.setEditable(false); /* desativa a casa escrever */
+	mostraTempo2.setEditable(false); 
 	jPanel.add(mostraTempo2, gridBagConstraints);
 	
-	gridBagConstraints.gridwidth = 1; /* posiconamento de largura 1 */
+	gridBagConstraints.gridwidth = 1; 
 	
 	jButton.setPreferredSize(new Dimension(92, 25));
 	gridBagConstraints.gridy ++;
@@ -118,8 +118,7 @@ private Runnable thread2 = new Runnable() {
 	jButton.addActionListener(new ActionListener() {
 		
 		@Override
-		public void actionPerformed(ActionEvent e) {  /* executa o clique no botao */
-			// TODO Auto-generated method stub
+		public void actionPerformed(ActionEvent e) { 
 			thread1Time = new Thread(thread1);
 			thread1Time.start();
 			
@@ -145,9 +144,9 @@ private Runnable thread2 = new Runnable() {
 	
 	jButton2.setEnabled(false);
 	
-	add(jPanel, BorderLayout.WEST); /* adiconou o layoub no painel (West <esquerda) */
-	/* sempre ultima linha */	
-		setVisible(true); /* Torna a tela visivel para o usuario*/
+	add(jPanel, BorderLayout.WEST);
+	
+		setVisible(true);
 	}
 	
 	
